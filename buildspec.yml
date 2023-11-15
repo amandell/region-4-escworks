@@ -1,11 +1,9 @@
 version: 0.2
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
     commands:
-      #install Node 12
-      - echo installing node
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
-      - apt-get install -y nodejs
       #install yarn
       - echo installing yarn
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
