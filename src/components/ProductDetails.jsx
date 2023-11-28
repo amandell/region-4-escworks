@@ -10,10 +10,9 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const {data, error, isLoading} = useQuery('products', () => getProductDetails(id), {refetchOnWindowFocus: false});
-
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>An error occurred</div>
+  const {data, error, isLoading} = useQuery(`product-${id}`, () => getProductDetails(id));
+  if (isLoading) return <div className='flex justify-center'>Loading...</div>
+  if (error) return <div className='flex justify-center'>An error occurred</div>
 
   return (
     <TableContainer sx={{width: '50%', margin: 'auto', display: 'flex', flexDirection: 'column'}} component={Paper}>
