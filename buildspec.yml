@@ -22,3 +22,4 @@ phases:
   post_build:
     commands:
       - aws s3 cp --recursive ./build s3://region-4-escworks
+      - aws s3 cp ./src/lambdas s3://region-4-escworks
