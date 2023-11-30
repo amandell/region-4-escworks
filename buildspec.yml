@@ -22,4 +22,5 @@ phases:
   post_build:
     commands:
       - aws s3 cp --recursive ./build s3://region-4-escworks
-      - aws s3 cp ./src/lambdas s3://region-4-escworks
+      - zip lambda ./src/lambdas/index.mjs
+      - aws s3 cp lambda.zip s3://region-4-escworks
